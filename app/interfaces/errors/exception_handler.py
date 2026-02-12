@@ -3,14 +3,14 @@ import logging
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException
-from app.interfaces.errors.exceptions import APPException, NotFoundException, BadRequestException
+from app.interfaces.errors.exceptions import AppException, NotFoundException, BadRequestException
 from app.interfaces.schemas.base import Response
 
 logger = logging.getLogger(__name__)
 
 def register_exception_handlers(app: FastAPI) -> None:
-    @app.exception_handler(APPException)
-    async def app_exception_handler(req: Request, e: APPException) -> JSONResponse:
+    @app.exception_handler(AppException)
+    async def app_exception_handler(req: Request, e: AppException) -> JSONResponse:
         """处理沙箱系统的异常，统一响应"""
         logger.error(f"APPException:{e.msg}")
         return JSONResponse(
