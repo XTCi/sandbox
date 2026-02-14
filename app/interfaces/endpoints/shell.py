@@ -1,6 +1,4 @@
 import os
-import re
-from unittest import result
 from fastapi import APIRouter, Depends
 
 from app.interfaces.errors.exceptions import BadRequestException

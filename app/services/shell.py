@@ -1,23 +1,13 @@
 import asyncio
 import codecs
-from email import errors
 import getpass
 import logging
-from multiprocessing import process
 import os
-from pyexpat.errors import codes
 import re
 import socket
-from sys import ps1
-from urllib import request
 import uuid
-from math import log
 from typing import Dict, Optional, List
 
-from click import command, echo
-from dotenv import set_key
-
-from app.interfaces.endpoints.shell import exec_command
 from app.interfaces.errors.exceptions import AppException, BadRequestException, NotFoundException
 from app.models.shell import ConsoleRecord, Shell, ShellExecuteResult, ShellKillResult, ShellReadResult, ShellWaitResult, ShellWriteResult
 logger = logging.getLogger(__name__)
